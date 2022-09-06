@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | Todo app</title>
+
+  <script defer src="script.js"></script>
+ <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <main role="main">
+    <section class="container">
+<!-- TODO HEADING -->
+        <div class="todo-heading">
+          <h1 class="main-heading">TODO</h1>
+          <div class="theme">
+            <img src="images/icon-moon.svg" alt="moon image" class="moon-icon">
+            <img src="images/icon-sun.svg" alt="sun image" class="sun-icon">
+          </div>
+        </div>
+<!-- TODO INPUT -->
+      <form id="form" class="form-input">
+        <input type="checkbox" class="check-input check-input-form">
+        <input id="input-text" type="text" class="input-text" placeholder="Create a new todo..." autocomplete="off">
+      </form>
+<!-- TODO BOX -->
+      <div class="todo-box ">
+          <div class="todo-box-list flex">
+            <input type="checkbox" class="check-input check-todo--box">
+            <p class="todo-text">test run text</p>
+
+            <img src="images/icon-cross.svg" alt="cross icon" class="icon-cross">
+          </div>
+          
+          <div class="todo-box-list flex">
+            <input type="checkbox" class="check-input check-todo--box">
+            <p class="todo-text">test run text</p>
+
+            <img src="images/icon-cross.svg" alt="cross icon" class="icon-cross">
+          </div>
+
+
+        </div>
+<!-- ACTION BAR -->
+          <div class="action-bar flex">
+            <div class="items-left flex">
+              <span class="items-left-total">1</span>
+              <p class="items-left-text">items left</p>
+            </div>
+            <div class="action-btn flex">
+              <p class="all focus hover" >All</p>
+              <p class="active hover">Active</p>
+              <p class="completed hover">Completed</p>
+            </div>
+            <div class="clear hover">Clear Completed
+            </div>
+          </div>
+        </div>
+        <div class="action-bar--mobile">
+          <div class="action-btn--mobile flex">
+              <p class="all focus hover" >All</p>
+              <p class="active hover">Active</p>
+              <p class="completed hover">Completed</p>
+            </div>
+        </div>
+
+      </div>
+   
+  </div>
+  </section>
+  <footer>
+    <p>Drag and drop to reorder list</p>
+  </footer>
+ 
+  <div class="attribution" role="contentinfo">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">bc464</a>.
+  </div>
+   </main>
+  </body>
+</html>
