@@ -11,7 +11,8 @@
 
   <title>Frontend Mentor | Todo app</title>
 
-  <script defer src="script.js"></script>
+  <!-- <script defer src="script.js"></script> -->
+  <script defer src="script3.js"></script>
  <link rel="stylesheet" href="style.css">
   
 </head>
@@ -27,32 +28,19 @@
           </div>
         </div>
 <!-- TODO INPUT -->
-      <form id="form" class="form-input">
-        <input type="checkbox" class="check-input check-input-form">
-        <input id="input-text" type="text" class="input-text" placeholder="Create a new todo..." autocomplete="off">
-      </form>
+        <form id="form" class="form-input">
+          <input type="checkbox" class="check-input check-input-form">
+          <input id="input-text" type="text" class="input-text" placeholder="Create a new todo..." autocomplete="off" >
+        </form>
 <!-- TODO BOX -->
-      <div class="todo-box ">
-          <div class="todo-box-list flex">
-            <input type="checkbox" class="check-input check-todo--box">
-            <p class="todo-text">test run text</p>
-
-            <img src="images/icon-cross.svg" alt="cross icon" class="icon-cross">
-          </div>
-          
-          <div class="todo-box-list flex">
-            <input type="checkbox" class="check-input check-todo--box">
-            <p class="todo-text">test run text</p>
-
-            <img src="images/icon-cross.svg" alt="cross icon" class="icon-cross">
-          </div>
-
-
+        <div class="todo-container">
+          <div class="todo-box "></div>
         </div>
+
 <!-- ACTION BAR -->
           <div class="action-bar flex">
             <div class="items-left flex">
-              <span class="items-left-total">1</span>
+              <span class="items-left-total">0</span>
               <p class="items-left-text">items left</p>
             </div>
             <div class="action-btn flex">
@@ -71,19 +59,17 @@
               <p class="completed hover">Completed</p>
             </div>
         </div>
-
       </div>
-   
-  </div>
+    </div>
   </section>
   <footer>
     <p>Drag and drop to reorder list</p>
   </footer>
  
-  <div class="attribution" role="contentinfo">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">bc464</a>.
-  </div>
+    <div class="attribution" role="contentinfo">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">bc464</a>.
+    </div>
    </main>
   </body>
 </html>

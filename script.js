@@ -1,38 +1,98 @@
 const body = document.querySelector("body");
-const container = document.querySelector(".container");
+
 const form = document.getElementById('form');
+const formInput = document.querySelector(".form-input");
 const todoInput = document.querySelector(".todo-input");
 const inputText = document.getElementById('input-text');
+// TODO CONTAINER
+const todoContainer = document.querySelector(".todo-container");
+const todoBox = document.querySelector(".todo-box");
 const todoBoxList = document.querySelector(".todo-box-list");
 const todoBoxItem = document.getElementsByClassName(".todo-box-item");
 const actionBar = document.querySelector(".action-bar");
-const todoText = document.querySelector(".todo-text");
-const todoBox = document.querySelector(".todo-box");
+// const todoText = document.querySelector(".todo-text");
+// const todoBox = document.querySelector(".todo-box");
 
+// ACTION BAR BUTTONS
 const itemsLeft = document.querySelector(".items-left-total");
 const clearBtn = document.querySelector(".clear");
 const allBtn = document.querySelector(".all");
 const activeBtn = document.querySelector(".active");
 const completedBtn = document.querySelector(".completed");
 
+// Moon & Sun Icons
 const moonIcon = document.querySelector(".moon-icon");
 const sunIcon = document.querySelector(".sun-icon");
-const bgGroundColor = document.querySelector(".bgroundcolor");
-
-const bgroundImageDark = document.querySelector(".bgroundimage-dark");
 
 
-const bgroundImageLight = document.querySelector(".bgroundimage-light");
+
+formInput.addEventListener("onchange", addTodo);
 
 window.addEventListener("DOMContentLoaded", setupItems);
 
-let counter = 0;
-form.addEventListener("submit", function(e){
+// ADD NEW TODO TO LIST
+function addTodo(e) {
 	e.preventDefault();
-	addItem();
+	const value = todo.value;
+	const id = new Date().getTime().toString();
+	console.log(value);
+
+	if (value !== "") {
+		const element = document.createElement("div");
+		let attr = document.createAttribute("data-id");
+		attr.value = id;
+		element.setAttributeNode(attr);
+		element.classList.add("todo-box-list");
+		element.innerHTML = `
+			<input type="checkbox" class="check-input check-todo--box">
+            <p class="todo-text">${value}</p>
+
+            <img src="images/icon-cross.svg" alt="cross icon" class="icon-cross">
+          </div>
+		`;
+
+		const checkedTodoBox = element.querySelector(".check-todo--box");
+		checkedTodoBox.addEventListener("click", markTodoText);
+		console.log(checkedTodoBox)
+
+		const deleteCross = element.querySelector(".icon-cross");
+		deleteCross.addEventListener("click", deleteItem);
+console.log(element)
+		todoBox.appendChild(element);
+
+		todoContainer.classList.add("show-container");
+
+		addToLocalStorage(id, value);
+
+		// setBackToDefault();
+
+	}
+
+
+}
+
+// DELETE ITEM
+function deleteItem(e) {
+	const element = e.currentTarget.parentElement.parentElement;
+	const id = element.dataset.id;
+	 todoBox.removeChild(element);
+
+	 if (todoBox.children.length === 0) {
+	 	container.classList.remove("show-container");
+	 }
+	 setBackToDefault();
+
+	 removeFromLocalStorage(id);
+}
+
+
+let counter = 0;
+// form.addEventListener("submit", function(e){
+// 	e.preventDefault();
+// 	addItem();
 	
 
-});
+// });
 function clear() {
 	clearBtn.addEventListener("click", function() {
 console.log("clicked");
@@ -65,7 +125,7 @@ function addItem() {
 	if(value !== ""){
 const displayTodos = function(value) {
 	
-todoBox.innerHTML = "";
+// todoBox.innerHTML = "";
 		value.forEach(function(value, i){
 			const html = `<div class="circle2"></div>
             <p class="todo-text">${value}</p>
@@ -127,7 +187,7 @@ todoBox.innerHTML = "";
 function addToLocalStorage(id, value) {
 	const todoInput = {id, value};
 	let items = getLocalStorage();
-	items.push(todoInput);
+	items.push(todoBoxList);
 	localStorage.setItem("list", JSON.stringify(items));
 }
 function getLocalStorage() {
@@ -153,7 +213,7 @@ function setupItems() {
 		items.forEach(function (item) {
 			createListItem(item.id, item.value);
 		});
-		// container.classList.add("show-container")
+		todoContainer.classList.add("show-container")
 	}
 
 
@@ -166,7 +226,7 @@ function createListItem(id, value) {
 			const html = `
 			<div class="todo-box-list flex">
             <input type="checkbox" class="check-input check-todo--box">
-            <p class="todo-text">{value}</p>
+            <p class="todo-text">${value}</p>
 
             <img src="images/icon-cross.svg" alt="cross icon" class="icon-cross">
           </div>
@@ -197,6 +257,8 @@ console.log(html)
           // todoBox.classList.add("show-container");
           counter++;
           itemsLeft.innerHTML = counter;
+
+// DARK AND LIGHT THEMES
 const theme = document.documentElement;
 
 theme.classList.add("light");
@@ -218,13 +280,20 @@ sunIcon.addEventListener("click", function(){
 	moonIcon.style.display = "block";
 	sunIcon.style.display = "none";
 	
-})   
-const todoText = document.querySelector(".todo-text");
-const circle2 = document.querySelector(".check-todo--box");
-circle2.addEventListener("click", function(){
-	circle2.classList.toggle("completed");
-		todoText.classList.toggle("complete");
-})	
+})  
+
+ //MARK TODO'S AS DONE 
+ function markTodoText() {
+ 	const todoText = document.querySelector(".todo-text");
+ 		todoText.classList.toggle("complete");
+ }
+
+// const circle2 = document.querySelector(".check-todo--box");
+// circle2.addEventListener("click", function(){
+// 	console.log(circle2)
+// 	// circle2.classList.toggle("completed");
+// 		todoText.classList.toggle("complete");
+// })	
 	
 
 	

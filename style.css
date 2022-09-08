@@ -132,6 +132,9 @@ body {
 	border: 1px solid var(--circle);
 	cursor: pointer;
 }
+.check-input:hover {
+	border:  1px solid hsl(220, 98%, 61%);
+}
 .check-input-form {
 	position: absolute;
 	top:  19px;
@@ -140,6 +143,13 @@ body {
 
 
 /***TODO - BOX - ITEM ****/
+.todo-container {
+	display: none;
+}
+.show-container {
+	display: block;
+}
+
 .todo-box {
 	
 	border-top-left-radius: 6px;
@@ -234,10 +244,11 @@ body {
 
 	/*visibility: hidden;*/
 }
-
-.show-container {
-	visibility: visible;
+.delete {
+	display: none;
 }
+
+
 /***ACTION BAR *****/
 .action-bar {
 	align-items: center;
